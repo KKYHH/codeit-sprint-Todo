@@ -13,4 +13,8 @@
     .bold {
         font-family: var(--font-nanum-bd);
     }
+
+    .reg {
+        font-family: var(--font-nanum-rg);
+    }
 }
