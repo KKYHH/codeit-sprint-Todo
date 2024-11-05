@@ -1,4 +1,5 @@
-import Search from '@dev/shared/components/Search';
+import Button from '@devShared/components/Button';
+import Search from '@devShared/components/Search';
 import Header from '@devWidgets/header/Header';
 
 export default function Page() {
@@ -6,6 +7,7 @@ export default function Page() {
         <>
             <Header />
             <Search />
+            <Button />
         </>
     );
 }
