@@ -21,7 +21,7 @@ export default function RootLayout({
             lang="ko"
             className={`${nanumRegular.className} ${nanumBold.className}`}
         >
-            <body>{children}</body>
+            <body className="bg-slate-50">{children}</body>
         </html>
     );
 }
