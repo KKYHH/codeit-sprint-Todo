@@ -12,6 +12,7 @@ export default function DoneList({ todos, onToggle }: DoneListProps) {
                         key={index}
                         completed={todo.completed}
                         onToggle={() => onToggle(index)}
+                        className="bg-violet-100 line-through"
                     >
                         {todo.text}
                     </CheckList>
