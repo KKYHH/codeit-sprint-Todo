@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 코드잇 스프린트 과제
 
-## Getting Started
+### 공통
 
-First, run the development server:
+-   제시된 폰트, 컬러 시스템을 설정해 주세요.
+-   재사용성을 위해 공용 컴포넌트를 만들어 주세요.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 할 일 목록 페이지(`/`)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**목록 조회**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   ‘로고’ 버튼을 클릭하면 ‘/’ 페이지로 이동합니다. (새로고침)
+-   진행 중인 할 일과 완료된 할 일을 나누어 볼 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**할 일 추가**
 
-## Learn More
+-   상단 입력창에 할 일 텍스트를 입력하고 `추가하기` 버튼을 클릭하거나 엔터를 치면 할 일을 새로 생성합니다.
 
-To learn more about Next.js, take a look at the following resources:
+**할 일 완료**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   진행 중 할 일 항목의 왼쪽 버튼을 클릭하면 체크 표시가 되면서 완료 상태가 됩니다.
+-   완료된 할 일 항목의 왼쪽 버튼을 다시 클릭하면 체크 표시가 사라지면서 진행 중 상태가 됩니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **추가 요구사항**
 
-## Deploy on Vercel
+-   **코드 주석 및 문서화**
+    -   주요 기능과 컴포넌트에 대한 주석을 작성해 주세요.
+-   **README.md 파일 작성**
+    -   프로젝트 설명과 사용 방법을 명시해 주세요.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **할 일 목록 페이지(`/`)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   [x] **목록 조회 기능**:
+    -   [x] 로고 버튼을 클릭했을 때 `/` 페이지로 이동(새로고침)이 되나요?
+    -   [x] 진행 중인 할 일과 완료된 할 일이 구분되어 표시되나요?
+-   [x] **할 일 추가 기능**:
+    -   [x] 입력창에 할 일을 입력하고 `추가하기` 버튼을 클릭하거나 엔터를 눌렀을 때 새로운 할 일이 생성되나요?
+-   [x] **할 일 완료 처리**:
+    -   [x] 진행 중인 할 일 항목의 체크박스를 클릭했을 때 완료 상태로 변경되나요?
+    -   [x] 완료된 할 일 항목의 체크박스를 클릭했을 때 다시 진행 중 상태로 변경되나요?

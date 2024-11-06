@@ -6,6 +6,16 @@ import Default from '@devShared/images/Default.svg';
 import Check from '@devShared/images/Check.svg';
 import Image from 'next/image';
 
+/**
+ * CheckList 컴포넌트는 개별 할 일 항목의 UI와 완료 상태를 표시하고 제어하는 컴포넌트입니다.
+ * 사용자는 클릭을 통해 체크박스를 선택하거나 해제할 수 있으며, 체크박스 상태에 따라 완료 여부가 토글됩니다.
+ * 이 컴포넌트는 완료 여부에 따라 아이콘(체크 아이콘 또는 기본 아이콘)을 조건부로 렌더링하며,
+ * 완료된 항목과 미완료 항목의 스타일을 구분하여 사용자 경험을 향상시킵니다.
+ * `onToggle` prop은 부모 컴포넌트에서 전달되어 상태 변화를 처리합니다.
+ * 이를 통해 상위 컴포넌트에서 관리하는 데이터와 동기화되어 투두 리스트에서
+ * 항목을 추가하거나 완료 상태를 변경하는 기능을 제공합니다.
+ */
+
 export default function CheckList({
     className,
     children,
