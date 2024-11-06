@@ -7,7 +7,7 @@ import DoneList from '@devWidgets/todo/DoneList';
 import EmptyTodo from '@dev/widgets/empty/EmptyTodo';
 import EmptyDone from '@dev/widgets/empty/EmptyDone';
 
-export default function TodoPage() {
+export default function TodoView() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     const addTodo = (newTodo: string) => {

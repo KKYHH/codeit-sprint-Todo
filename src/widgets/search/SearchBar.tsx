@@ -14,12 +14,19 @@ export default function SearchBar({ onAddTodo }: SearchBarProps) {
         setInputValue('');
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleAddTodo();
+        }
+    };
+
     return (
         <section className="flex gap-5 pt-6">
             <Search
                 className="flex-1 min-w-0"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <Button
                 className="bg-violet-600 text-white text-[0.8rem] px-6 flex items-center justify-center gap-1"
