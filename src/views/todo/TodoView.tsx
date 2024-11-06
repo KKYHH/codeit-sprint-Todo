@@ -16,16 +16,23 @@ export default function TodoView() {
         }
     };
 
-    const toggleTodoCompletion = (index: number) => {
+    const toggleTodoCompletion = (originalIndex: number) => {
         setTodos((prevTodos) =>
             prevTodos.map((todo, i) =>
-                i === index ? { ...todo, completed: !todo.completed } : todo
+                i === originalIndex
+                    ? { ...todo, completed: !todo.completed }
+                    : todo
             )
         );
     };
 
-    const activeTodos = todos.filter((todo) => !todo.completed);
-    const completedTodos = todos.filter((todo) => todo.completed);
+    const activeTodos = todos
+        .map((todo, index) => ({ ...todo, originalIndex: index }))
+        .filter((todo) => !todo.completed);
+
+    const completedTodos = todos
+        .map((todo, index) => ({ ...todo, originalIndex: index }))
+        .filter((todo) => todo.completed);
 
     console.log(todos);
 
@@ -36,7 +43,11 @@ export default function TodoView() {
                 {activeTodos.length > 0 ? (
                     <TodoList
                         todos={activeTodos}
-                        onToggle={toggleTodoCompletion}
+                        onToggle={(index) =>
+                            toggleTodoCompletion(
+                                activeTodos[index].originalIndex
+                            )
+                        }
                     />
                 ) : (
                     <EmptyTodo />
@@ -45,7 +56,11 @@ export default function TodoView() {
                 {completedTodos.length > 0 ? (
                     <DoneList
                         todos={completedTodos}
-                        onToggle={toggleTodoCompletion}
+                        onToggle={(index) =>
+                            toggleTodoCompletion(
+                                completedTodos[index].originalIndex
+                            )
+                        }
                     />
                 ) : (
                     <EmptyDone />

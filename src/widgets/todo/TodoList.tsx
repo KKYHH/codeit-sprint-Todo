@@ -8,7 +8,11 @@ export default function TodoList({ todos, onToggle }: TodoListProps) {
             <Image src={Todo} width={100} height={100} alt="img" />
             <div className="flex flex-col gap-4 pt-8">
                 {todos.map((todo, index) => (
-                    <CheckList key={index} onClick={() => onToggle(index)}>
+                    <CheckList
+                        key={index}
+                        completed={todo.completed}
+                        onToggle={() => onToggle(index)}
+                    >
                         {todo.text}
                     </CheckList>
                 ))}

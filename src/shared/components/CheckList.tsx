@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Default from '@devShared/images/Default.svg';
@@ -10,14 +9,10 @@ import Image from 'next/image';
 export default function CheckList({
     className,
     children,
+    completed,
+    onToggle,
     ...props
 }: CheckListProps) {
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
-    };
-
     return (
         <article>
             <div
@@ -27,15 +22,15 @@ export default function CheckList({
                 )}
                 {...props}
             >
-                <div className="relative" onClick={handleCheckboxChange}>
+                <div className="relative" onClick={onToggle}>
                     <input
                         type="checkbox"
-                        checked={isChecked}
-                        onChange={handleCheckboxChange}
+                        checked={completed}
+                        onChange={onToggle}
                         className="absolute opacity-0 w-0 h-0"
                     />
                     <Image
-                        src={isChecked ? Check : Default}
+                        src={completed ? Check : Default}
                         width={20}
                         height={20}
                         alt="checkbox icon"
@@ -51,4 +46,6 @@ export default function CheckList({
 type CheckListProps = {
     className?: string;
     children?: React.ReactNode;
+    completed: boolean;
+    onToggle: () => void;
 } & HTMLAttributes<HTMLDivElement>;
