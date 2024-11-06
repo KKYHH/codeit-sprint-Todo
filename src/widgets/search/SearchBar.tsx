@@ -8,16 +8,30 @@ import Image from 'next/image';
 
 export default function SearchBar({ onAddTodo }: SearchBarProps) {
     const [inputValue, setInputValue] = useState('');
+    const [isComposing, setIsComposing] = useState(false);
 
     const handleAddTodo = () => {
-        onAddTodo(inputValue);
-        setInputValue('');
+        if (!isComposing && inputValue.trim()) {
+            onAddTodo(inputValue);
+            setInputValue('');
+        }
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && !isComposing) {
             handleAddTodo();
         }
+    };
+
+    const handleCompositionStart = () => {
+        setIsComposing(true);
+    };
+
+    const handleCompositionEnd = (
+        e: React.CompositionEvent<HTMLInputElement>
+    ) => {
+        setIsComposing(false);
+        setInputValue((e.target as HTMLInputElement).value);
     };
 
     return (
@@ -27,6 +41,8 @@ export default function SearchBar({ onAddTodo }: SearchBarProps) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
+                onCompositionStart={handleCompositionStart}
+                onCompositionEnd={handleCompositionEnd}
             />
             <Button
                 className="bg-violet-600 text-white text-[0.8rem] px-6 flex items-center justify-center gap-1"
